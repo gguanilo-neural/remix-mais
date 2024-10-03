@@ -1,0 +1,384 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "manager",
+						"type": "address"
+					}
+				],
+				"name": "ManagerApproved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "manager",
+						"type": "address"
+					}
+				],
+				"name": "ManagerRemoved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "shipmentId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "transporter",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "reason",
+						"type": "string"
+					}
+				],
+				"name": "PenaltyApplied",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "shipmentId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "productId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "transporter",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "estimatedDeliveryTime",
+						"type": "uint256"
+					}
+				],
+				"name": "ShipmentCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "shipmentId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum LogisticsManagement.ShipmentStatus",
+						"name": "status",
+						"type": "uint8"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "currentLocation",
+						"type": "string"
+					}
+				],
+				"name": "ShipmentStatusUpdated",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_shipmentId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_reason",
+						"type": "string"
+					}
+				],
+				"name": "applyPenalty",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_manager",
+						"type": "address"
+					}
+				],
+				"name": "approveManager",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_shipmentId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_productId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_transporter",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_estimatedDeliveryTime",
+						"type": "uint256"
+					}
+				],
+				"name": "createShipment",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_shipmentId",
+						"type": "uint256"
+					}
+				],
+				"name": "getShipment",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "productId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "transporter",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "estimatedDeliveryTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "currentLocation",
+						"type": "string"
+					},
+					{
+						"internalType": "enum LogisticsManagement.ShipmentStatus",
+						"name": "status",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "pauseContract",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_manager",
+						"type": "address"
+					}
+				],
+				"name": "removeManager",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "unpauseContract",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_shipmentId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum LogisticsManagement.ShipmentStatus",
+						"name": "_status",
+						"type": "uint8"
+					},
+					{
+						"internalType": "string",
+						"name": "_currentLocation",
+						"type": "string"
+					}
+				],
+				"name": "updateShipmentStatus",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "Includes shipment tracking, estimated delivery times, and penalty enforcement.",
+			"kind": "dev",
+			"methods": {
+				"applyPenalty(uint256,string)": {
+					"params": {
+						"_reason": "The reason for applying the penalty",
+						"_shipmentId": "The unique ID of the shipment"
+					}
+				},
+				"approveManager(address)": {
+					"params": {
+						"_manager": "The address to be approved as a manager"
+					}
+				},
+				"createShipment(uint256,uint256,address,uint256)": {
+					"params": {
+						"_estimatedDeliveryTime": "The estimated delivery time (in Unix timestamp)",
+						"_productId": "The ID of the product being shipped",
+						"_shipmentId": "The unique ID of the shipment",
+						"_transporter": "The address of the transporter responsible for the shipment"
+					}
+				},
+				"getShipment(uint256)": {
+					"params": {
+						"_shipmentId": "The unique ID of the shipment"
+					},
+					"returns": {
+						"currentLocation": "The current location of the shipment",
+						"estimatedDeliveryTime": "The estimated delivery time (in Unix timestamp)",
+						"productId": "The ID of the product being shipped",
+						"status": "The current status of the shipment (Pending, InTransit, Delivered, Delayed, Lost)",
+						"timestamp": "The time when the shipment was created",
+						"transporter": "The address of the transporter responsible for the shipment"
+					}
+				},
+				"removeManager(address)": {
+					"params": {
+						"_manager": "The address to be removed from approved managers"
+					}
+				},
+				"updateShipmentStatus(uint256,uint8,string)": {
+					"params": {
+						"_currentLocation": "The current location of the shipment",
+						"_shipmentId": "The unique ID of the shipment",
+						"_status": "The updated status of the shipment"
+					}
+				}
+			},
+			"title": "Logistics and Transportation Contract - Supply Chain Management System",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"applyPenalty(uint256,string)": {
+					"notice": "Apply a penalty to a transporter for delays or loss"
+				},
+				"approveManager(address)": {
+					"notice": "Approve a new logistics manager"
+				},
+				"createShipment(uint256,uint256,address,uint256)": {
+					"notice": "Create a new shipment for a product"
+				},
+				"getShipment(uint256)": {
+					"notice": "Get the details of a shipment"
+				},
+				"pauseContract()": {
+					"notice": "Pause the contract to prevent certain operations"
+				},
+				"removeManager(address)": {
+					"notice": "Remove an existing logistics manager"
+				},
+				"unpauseContract()": {
+					"notice": "Unpause the contract to resume operations"
+				},
+				"updateShipmentStatus(uint256,uint8,string)": {
+					"notice": "Update the status and location of an existing shipment"
+				}
+			},
+			"notice": "This contract manages the assignment of transporters for the movement of products, shipment details, and penalties for delays or losses.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/LogisticsManagement.sol": "LogisticsManagement"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/LogisticsManagement.sol": {
+			"keccak256": "0xb887d88e9b184c44ef761118dc82d0ebb6ed4817cfdcd8a706169ad3554b820a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3730013c79974b35adc3f78a0e78bd5a1682e9f445eae036c67a33ad24c480b6",
+				"dweb:/ipfs/QmUcXMfmQjUVfRbj1Fb3WQakAajsnVaKEcqLBBf5GRtfva"
+			]
+		}
+	},
+	"version": 1
+}

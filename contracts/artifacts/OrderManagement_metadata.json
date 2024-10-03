@@ -1,0 +1,327 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "manager",
+						"type": "address"
+					}
+				],
+				"name": "ManagerApproved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "manager",
+						"type": "address"
+					}
+				],
+				"name": "ManagerRemoved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "orderId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "buyer",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "seller",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "productId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "quantity",
+						"type": "uint256"
+					}
+				],
+				"name": "OrderCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "orderId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum OrderManagement.OrderStatus",
+						"name": "newStatus",
+						"type": "uint8"
+					}
+				],
+				"name": "OrderStatusUpdated",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_manager",
+						"type": "address"
+					}
+				],
+				"name": "approveManager",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_orderId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_buyer",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_seller",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_productId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_quantity",
+						"type": "uint256"
+					}
+				],
+				"name": "createOrder",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_orderId",
+						"type": "uint256"
+					}
+				],
+				"name": "getOrder",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum OrderManagement.OrderStatus",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "pauseContract",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_manager",
+						"type": "address"
+					}
+				],
+				"name": "removeManager",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "unpauseContract",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_orderId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum OrderManagement.OrderStatus",
+						"name": "_newStatus",
+						"type": "uint8"
+					}
+				],
+				"name": "updateOrderStatus",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "It includes order status tracking, role-based access control, and event logging for order management.",
+			"kind": "dev",
+			"methods": {
+				"approveManager(address)": {
+					"params": {
+						"_manager": "The address to be approved as a manager"
+					}
+				},
+				"createOrder(uint256,address,address,uint256,uint256)": {
+					"params": {
+						"_buyer": "The address of the buyer",
+						"_orderId": "The unique ID of the order",
+						"_productId": "The ID of the product being ordered",
+						"_quantity": "The quantity of the product being ordered",
+						"_seller": "The address of the seller"
+					}
+				},
+				"getOrder(uint256)": {
+					"params": {
+						"_orderId": "The unique ID of the order"
+					},
+					"returns": {
+						"_0": "Order details including buyer, seller, product ID, quantity, timestamp, and status"
+					}
+				},
+				"removeManager(address)": {
+					"params": {
+						"_manager": "The address to be removed from approved managers"
+					}
+				},
+				"updateOrderStatus(uint256,uint8)": {
+					"params": {
+						"_newStatus": "The new status to be assigned to the order",
+						"_orderId": "The unique ID of the order"
+					}
+				}
+			},
+			"title": "Order Management Contract - Supply Chain Management System",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"approveManager(address)": {
+					"notice": "Approve a new manager for order management"
+				},
+				"createOrder(uint256,address,address,uint256,uint256)": {
+					"notice": "Create a new order"
+				},
+				"getOrder(uint256)": {
+					"notice": "Get the details of an order"
+				},
+				"pauseContract()": {
+					"notice": "Pause the contract to prevent certain operations"
+				},
+				"removeManager(address)": {
+					"notice": "Remove an existing manager"
+				},
+				"unpauseContract()": {
+					"notice": "Unpause the contract to resume operations"
+				},
+				"updateOrderStatus(uint256,uint8)": {
+					"notice": "Update the status of an existing order"
+				}
+			},
+			"notice": "This contract manages the creation, updating, and tracking of orders within a supply chain.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/OrderManagement.sol": "OrderManagement"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/OrderManagement.sol": {
+			"keccak256": "0xf5f78e475b90b1b27f8eb96a928b9e40255fe38c3f3654a3f4650ac45976264e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://776eb77990c08eb8d435e95b51e2a4a05a24e5e506a53819db83560f3719e2f7",
+				"dweb:/ipfs/QmdKJB2qFQ5vwBJkT2MQ4rC7WasgAM5t9KTcD92wX2brBK"
+			]
+		}
+	},
+	"version": 1
+}

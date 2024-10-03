@@ -1,0 +1,256 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "productId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "criteria",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum QualityCertification.QualityStatus",
+						"name": "status",
+						"type": "uint8"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "inspector",
+						"type": "address"
+					}
+				],
+				"name": "CertificationAdded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "inspector",
+						"type": "address"
+					}
+				],
+				"name": "InspectorApproved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "inspector",
+						"type": "address"
+					}
+				],
+				"name": "InspectorRemoved",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_productId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_criteria",
+						"type": "string"
+					},
+					{
+						"internalType": "enum QualityCertification.QualityStatus",
+						"name": "_status",
+						"type": "uint8"
+					}
+				],
+				"name": "addCertification",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_inspector",
+						"type": "address"
+					}
+				],
+				"name": "approveInspector",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_productId",
+						"type": "uint256"
+					}
+				],
+				"name": "getCertification",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "criteria",
+						"type": "string"
+					},
+					{
+						"internalType": "enum QualityCertification.QualityStatus",
+						"name": "status",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "inspector",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "pauseContract",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_inspector",
+						"type": "address"
+					}
+				],
+				"name": "removeInspector",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "unpauseContract",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "It includes quality inspector roles, product certification records, and quality verification functions.",
+			"kind": "dev",
+			"methods": {
+				"addCertification(uint256,string,uint8)": {
+					"params": {
+						"_criteria": "The quality criteria applied for certification",
+						"_productId": "The unique ID of the product",
+						"_status": "The quality status of the product"
+					}
+				},
+				"approveInspector(address)": {
+					"params": {
+						"_inspector": "The address to be approved as an inspector"
+					}
+				},
+				"getCertification(uint256)": {
+					"params": {
+						"_productId": "The unique ID of the product"
+					},
+					"returns": {
+						"criteria": "The quality criteria applied for certification",
+						"inspector": "The address of the inspector who certified the product",
+						"status": "The quality status of the product",
+						"timestamp": "The time when the certification was recorded"
+					}
+				},
+				"removeInspector(address)": {
+					"params": {
+						"_inspector": "The address to be removed from approved inspectors"
+					}
+				}
+			},
+			"title": "Quality Certification Contract - Supply Chain Management System",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"addCertification(uint256,string,uint8)": {
+					"notice": "Add a quality certification for a product"
+				},
+				"approveInspector(address)": {
+					"notice": "Approve a new inspector for quality certification"
+				},
+				"getCertification(uint256)": {
+					"notice": "Get the quality certification details of a product"
+				},
+				"pauseContract()": {
+					"notice": "Pause the contract to prevent certain operations"
+				},
+				"removeInspector(address)": {
+					"notice": "Remove an existing inspector"
+				},
+				"unpauseContract()": {
+					"notice": "Unpause the contract to resume operations"
+				}
+			},
+			"notice": "This contract manages quality criteria, product certifications, and compliance tracking.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/QualityCertification.sol": "QualityCertification"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/QualityCertification.sol": {
+			"keccak256": "0x63d82987cf22e5ed8b8c51b146bddc9b29039213921522f0ac96240b5ed6f0f9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://956122148d5214e6921b5b84dec9bde72d49ae549cfc4c23736c616470b89e91",
+				"dweb:/ipfs/QmS8qnStPFRyjNsxT92PCWgL17ifWM4NAmxyjvNGXKqwGG"
+			]
+		}
+	},
+	"version": 1
+}

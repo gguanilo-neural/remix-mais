@@ -64,10 +64,11 @@
 	},
 	"sources": {
 		"will.sol": {
-			"keccak256": "0x326be1618446b08dfec800255d2e6505eb53a9b80465d5c591c261abe87c93c9",
+			"keccak256": "0x03c55cb4a257da65f5171559f74482c0a94492f0de4451ef0afd34a052ea0def",
+			"license": "MIT",
 			"urls": [
-				"bzz-raw://d75bebb63282ecc3d095d02499cf631407196e4904badde6eb7a246917997565",
-				"dweb:/ipfs/Qma4amLBT7oWmJ4d416KaAeNLSypRweULy7h2WSVn4XcqA"
+				"bzz-raw://ca1f6c0b07939b56e13968606ca2c9a7994f0f145650eeb1bbc189145c818345",
+				"dweb:/ipfs/QmNsWzVzeikga85n39n5FcTTCctVDxUFaR2bVmgPFAu7qA"
 			]
 		}
 	},

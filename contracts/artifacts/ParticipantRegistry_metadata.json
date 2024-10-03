@@ -1,0 +1,300 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "participantAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum ParticipantRegistry.Role",
+						"name": "role",
+						"type": "uint8"
+					}
+				],
+				"name": "ParticipantRegistered",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "participantAddress",
+						"type": "address"
+					}
+				],
+				"name": "ParticipantRemoved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "registrar",
+						"type": "address"
+					}
+				],
+				"name": "RegistrarApproved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "registrar",
+						"type": "address"
+					}
+				],
+				"name": "RegistrarRemoved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "participantAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum ParticipantRegistry.Role",
+						"name": "newRole",
+						"type": "uint8"
+					}
+				],
+				"name": "RoleUpdated",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_registrar",
+						"type": "address"
+					}
+				],
+				"name": "approveRegistrar",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_participantAddress",
+						"type": "address"
+					}
+				],
+				"name": "getParticipant",
+				"outputs": [
+					{
+						"internalType": "enum ParticipantRegistry.Role",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "pauseContract",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_participantAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "enum ParticipantRegistry.Role",
+						"name": "_role",
+						"type": "uint8"
+					}
+				],
+				"name": "registerParticipant",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_participantAddress",
+						"type": "address"
+					}
+				],
+				"name": "removeParticipant",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_registrar",
+						"type": "address"
+					}
+				],
+				"name": "removeRegistrar",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "unpauseContract",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_participantAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "enum ParticipantRegistry.Role",
+						"name": "_newRole",
+						"type": "uint8"
+					}
+				],
+				"name": "updateRole",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "Includes role-based access control and event logging for transparency.",
+			"kind": "dev",
+			"methods": {
+				"approveRegistrar(address)": {
+					"params": {
+						"_registrar": "The address to be approved as a registrar"
+					}
+				},
+				"getParticipant(address)": {
+					"params": {
+						"_participantAddress": "The address of the participant"
+					},
+					"returns": {
+						"_0": "The role of the participant"
+					}
+				},
+				"registerParticipant(address,uint8)": {
+					"params": {
+						"_participantAddress": "The address of the participant to be registered",
+						"_role": "The role assigned to the participant"
+					}
+				},
+				"removeParticipant(address)": {
+					"params": {
+						"_participantAddress": "The address of the participant to be removed"
+					}
+				},
+				"removeRegistrar(address)": {
+					"params": {
+						"_registrar": "The address to be removed from approved registrars"
+					}
+				},
+				"updateRole(address,uint8)": {
+					"params": {
+						"_newRole": "The new role to be assigned to the participant",
+						"_participantAddress": "The address of the participant whose role is to be updated"
+					}
+				}
+			},
+			"title": "Participant Registry - Supply Chain Management System",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"approveRegistrar(address)": {
+					"notice": "Approve a new registrar for participant registration"
+				},
+				"getParticipant(address)": {
+					"notice": "Get the role of a registered participant"
+				},
+				"pauseContract()": {
+					"notice": "Pause the contract to prevent certain operations"
+				},
+				"registerParticipant(address,uint8)": {
+					"notice": "Register a new participant with a specified role"
+				},
+				"removeParticipant(address)": {
+					"notice": "Remove an existing participant from the registry"
+				},
+				"removeRegistrar(address)": {
+					"notice": "Remove an existing registrar"
+				},
+				"unpauseContract()": {
+					"notice": "Unpause the contract to resume operations"
+				},
+				"updateRole(address,uint8)": {
+					"notice": "Update the role of an existing participant"
+				}
+			},
+			"notice": "This contract manages the registration and role assignment of participants in a supply chain.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/ParticipantRegistry.sol": "ParticipantRegistry"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/ParticipantRegistry.sol": {
+			"keccak256": "0xdaaccda370c5f37db001a6e95d8d50bcddc9f481fc800978ca29a00d7b8d178f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://46bb33652772defdf5b40030d2023334818c6a9fc6cbd67a587a99cfbb359211",
+				"dweb:/ipfs/QmYoCNgNXJCYN9Ntud5pZbn6ZbDbZGKpfK7zyJUKX9hj29"
+			]
+		}
+	},
+	"version": 1
+}

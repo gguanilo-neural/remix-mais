@@ -1,0 +1,351 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "manager",
+						"type": "address"
+					}
+				],
+				"name": "ManagerApproved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "manager",
+						"type": "address"
+					}
+				],
+				"name": "ManagerRemoved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "productId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "location",
+						"type": "string"
+					}
+				],
+				"name": "ProductMoved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "productId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "origin",
+						"type": "address"
+					}
+				],
+				"name": "ProductRegistered",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_manager",
+						"type": "address"
+					}
+				],
+				"name": "approveManager",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_productId",
+						"type": "uint256"
+					}
+				],
+				"name": "getProductMovementHistory",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "productId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "location",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "from",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "to",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "timestamp",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "eventDetails",
+								"type": "string"
+							}
+						],
+						"internalType": "struct Traceability.MovementEvent[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "pauseContract",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_productId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_location",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_eventDetails",
+						"type": "string"
+					}
+				],
+				"name": "recordMovement",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_productId",
+						"type": "uint256"
+					}
+				],
+				"name": "registerProduct",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_manager",
+						"type": "address"
+					}
+				],
+				"name": "removeManager",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "unpauseContract",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_productId",
+						"type": "uint256"
+					}
+				],
+				"name": "verifyProductAuthenticity",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "origin",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "creationDate",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "It includes transaction data, location, participants, and ensures product authenticity and provenance verification.",
+			"kind": "dev",
+			"methods": {
+				"approveManager(address)": {
+					"params": {
+						"_manager": "The address to be approved as a manager"
+					}
+				},
+				"getProductMovementHistory(uint256)": {
+					"params": {
+						"_productId": "The unique ID of the product"
+					},
+					"returns": {
+						"_0": "An array of MovementEvent structs representing the product's history"
+					}
+				},
+				"recordMovement(uint256,string,address,string)": {
+					"params": {
+						"_eventDetails": "Additional details of the event",
+						"_location": "The location where the event occurred",
+						"_productId": "The unique ID of the product being moved",
+						"_to": "The address of the recipient"
+					}
+				},
+				"registerProduct(uint256)": {
+					"params": {
+						"_productId": "The unique ID of the product"
+					}
+				},
+				"removeManager(address)": {
+					"params": {
+						"_manager": "The address to be removed from approved managers"
+					}
+				},
+				"verifyProductAuthenticity(uint256)": {
+					"params": {
+						"_productId": "The unique ID of the product"
+					},
+					"returns": {
+						"origin": "The address of the product's origin, and creationDate indicating the initial registration date"
+					}
+				}
+			},
+			"title": "Traceability and Tracking Contract - Supply Chain Management System",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"approveManager(address)": {
+					"notice": "Approve a new manager for product movement management"
+				},
+				"getProductMovementHistory(uint256)": {
+					"notice": "Get the movement history of a product"
+				},
+				"pauseContract()": {
+					"notice": "Pause the contract to prevent certain operations"
+				},
+				"recordMovement(uint256,string,address,string)": {
+					"notice": "Record a product movement event"
+				},
+				"registerProduct(uint256)": {
+					"notice": "Register a new product to start its traceability"
+				},
+				"removeManager(address)": {
+					"notice": "Remove an existing manager"
+				},
+				"unpauseContract()": {
+					"notice": "Unpause the contract to resume operations"
+				},
+				"verifyProductAuthenticity(uint256)": {
+					"notice": "Verify the authenticity and provenance of a product"
+				}
+			},
+			"notice": "This contract manages the recording of events related to product movements within the supply chain.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Traceability.sol": "Traceability"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Traceability.sol": {
+			"keccak256": "0xdd4b52f311ebb24cd4bfe428344191ff74b6bec80d28b5dac71491f8a1a61983",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3266db97fb6cf242f642cff406008e277ac7e2a81bea31462553f49c47b3dbe9",
+				"dweb:/ipfs/QmWi1Lt1o4o4sZiwTZ7RDqXHmNYvA9N8HSTUkpuzcdhEeV"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,398 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "manager",
+						"type": "address"
+					}
+				],
+				"name": "ManagerApproved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "manager",
+						"type": "address"
+					}
+				],
+				"name": "ManagerRemoved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "productId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "productType",
+						"type": "string"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"name": "ProductRegistered",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "productId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					}
+				],
+				"name": "ProductTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "productId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "newDescription",
+						"type": "string"
+					}
+				],
+				"name": "ProductUpdated",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_manager",
+						"type": "address"
+					}
+				],
+				"name": "approveManager",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_productId",
+						"type": "uint256"
+					}
+				],
+				"name": "getProduct",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_productId",
+						"type": "uint256"
+					}
+				],
+				"name": "getProductMovements",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "timestamp",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "from",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "to",
+								"type": "address"
+							}
+						],
+						"internalType": "struct ProductManagement.Movement[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "pauseContract",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_productId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_productType",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_description",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_productionDate",
+						"type": "uint256"
+					}
+				],
+				"name": "registerProduct",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_manager",
+						"type": "address"
+					}
+				],
+				"name": "removeManager",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_productId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferProduct",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "unpauseContract",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_productId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_newDescription",
+						"type": "string"
+					}
+				],
+				"name": "updateProduct",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "Includes role-based access, event logging, and historical movement tracking for products.",
+			"kind": "dev",
+			"methods": {
+				"approveManager(address)": {
+					"params": {
+						"_manager": "The address to be approved as a manager"
+					}
+				},
+				"getProduct(uint256)": {
+					"params": {
+						"_productId": "The unique ID of the product"
+					},
+					"returns": {
+						"_0": "Product details including product type, description, production date, and current owner"
+					}
+				},
+				"getProductMovements(uint256)": {
+					"params": {
+						"_productId": "The unique ID of the product"
+					},
+					"returns": {
+						"_0": "An array of movements including timestamps, sender, and receiver addresses"
+					}
+				},
+				"registerProduct(uint256,string,string,uint256)": {
+					"params": {
+						"_description": "A description of the product",
+						"_productId": "The unique ID of the product",
+						"_productType": "The type of the product (e.g., electronics, food)",
+						"_productionDate": "The production date of the product (in Unix timestamp)"
+					}
+				},
+				"removeManager(address)": {
+					"params": {
+						"_manager": "The address to be removed from approved managers"
+					}
+				},
+				"transferProduct(uint256,address)": {
+					"params": {
+						"_newOwner": "The address of the new owner",
+						"_productId": "The unique ID of the product"
+					}
+				},
+				"updateProduct(uint256,string)": {
+					"params": {
+						"_newDescription": "The new description of the product",
+						"_productId": "The unique ID of the product"
+					}
+				}
+			},
+			"title": "Product Management Contract - Supply Chain Management System",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"approveManager(address)": {
+					"notice": "Approve a new manager for product management"
+				},
+				"getProduct(uint256)": {
+					"notice": "Get the details of a registered product"
+				},
+				"getProductMovements(uint256)": {
+					"notice": "Get the movement history of a product"
+				},
+				"pauseContract()": {
+					"notice": "Pause the contract to prevent certain operations"
+				},
+				"registerProduct(uint256,string,string,uint256)": {
+					"notice": "Register a new product"
+				},
+				"removeManager(address)": {
+					"notice": "Remove an existing manager"
+				},
+				"transferProduct(uint256,address)": {
+					"notice": "Transfer ownership of a product to a new owner"
+				},
+				"unpauseContract()": {
+					"notice": "Unpause the contract to resume operations"
+				},
+				"updateProduct(uint256,string)": {
+					"notice": "Update the description of an existing product"
+				}
+			},
+			"notice": "This contract manages the creation, updating, and tracking of products within a supply chain.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/ProductManagement.sol": "ProductManagement"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/ProductManagement.sol": {
+			"keccak256": "0x861743b607e00bbab4c213bb206835de02ed0c51fc5e02a006b6ce3372271138",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f53e6d81d5d4d81194e6e99e62b25ce7fc6872f403bb81140bf33c397a20d09d",
+				"dweb:/ipfs/QmYD2qMSgPNqPDEtXNbKaP3hfj3pwzuiSu3q6bznu1Td45"
+			]
+		}
+	},
+	"version": 1
+}

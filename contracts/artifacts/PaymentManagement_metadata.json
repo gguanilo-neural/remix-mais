@@ -1,0 +1,348 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "manager",
+						"type": "address"
+					}
+				],
+				"name": "ManagerApproved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "manager",
+						"type": "address"
+					}
+				],
+				"name": "ManagerRemoved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "paymentId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "payer",
+						"type": "address"
+					}
+				],
+				"name": "PaymentCancelled",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "paymentId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "payer",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "payee",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "PaymentCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "paymentId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "payee",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "PaymentReleased",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_manager",
+						"type": "address"
+					}
+				],
+				"name": "approveManager",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_paymentId",
+						"type": "uint256"
+					}
+				],
+				"name": "cancelPayment",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_paymentId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_payee",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "createPayment",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_paymentId",
+						"type": "uint256"
+					}
+				],
+				"name": "getPayment",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "payer",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "payee",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum PaymentManagement.PaymentStatus",
+						"name": "status",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "pauseContract",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_paymentId",
+						"type": "uint256"
+					}
+				],
+				"name": "releasePayment",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_manager",
+						"type": "address"
+					}
+				],
+				"name": "removeManager",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "unpauseContract",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "Payments are securely managed, including conditional releases and escrow mechanisms.",
+			"kind": "dev",
+			"methods": {
+				"approveManager(address)": {
+					"params": {
+						"_manager": "The address to be approved as a manager"
+					}
+				},
+				"cancelPayment(uint256)": {
+					"params": {
+						"_paymentId": "The unique ID of the payment"
+					}
+				},
+				"createPayment(uint256,address,uint256)": {
+					"params": {
+						"_amount": "The amount of payment (in wei)",
+						"_payee": "The address of the payee",
+						"_paymentId": "The unique ID of the payment"
+					}
+				},
+				"getPayment(uint256)": {
+					"params": {
+						"_paymentId": "The unique ID of the payment"
+					},
+					"returns": {
+						"amount": "The amount of the payment",
+						"payee": "The address of the payee",
+						"payer": "The address of the payer",
+						"status": "The current status of the payment (Pending, Released, or Cancelled)",
+						"timestamp": "The time when the payment was created"
+					}
+				},
+				"releasePayment(uint256)": {
+					"params": {
+						"_paymentId": "The unique ID of the payment"
+					}
+				},
+				"removeManager(address)": {
+					"params": {
+						"_manager": "The address to be removed from approved managers"
+					}
+				}
+			},
+			"title": "Payment Management Contract - Supply Chain Management System",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"approveManager(address)": {
+					"notice": "Approve a new manager for payment management"
+				},
+				"cancelPayment(uint256)": {
+					"notice": "Cancel a payment and return funds to the payer"
+				},
+				"createPayment(uint256,address,uint256)": {
+					"notice": "Create a new payment and put it in escrow"
+				},
+				"getPayment(uint256)": {
+					"notice": "Get the details of a payment"
+				},
+				"pauseContract()": {
+					"notice": "Pause the contract to prevent certain operations"
+				},
+				"releasePayment(uint256)": {
+					"notice": "Release a payment from escrow when conditions are met"
+				},
+				"removeManager(address)": {
+					"notice": "Remove an existing manager"
+				},
+				"unpauseContract()": {
+					"notice": "Unpause the contract to resume operations"
+				}
+			},
+			"notice": "This contract manages payments between participants of a supply chain with escrow functionality.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/PaymentManagement.sol": "PaymentManagement"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/PaymentManagement.sol": {
+			"keccak256": "0x11a528249e618427edaed95c12df7f751ab3ab553d947bcce2b12dd5f5a9f89f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f2bcb28366116f486cf6ef9edd4b938c00df110432a10ce77366ea5fd4730b5e",
+				"dweb:/ipfs/Qmdwe7teoa2BKZ8AD2C9vRDu2zqbYZVkrRqV7ZZpD4E62L"
+			]
+		}
+	},
+	"version": 1
+}

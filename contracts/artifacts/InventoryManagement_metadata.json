@@ -1,0 +1,310 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "productId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "stock",
+						"type": "uint256"
+					}
+				],
+				"name": "InventoryRegistered",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "productId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newStock",
+						"type": "uint256"
+					}
+				],
+				"name": "InventoryUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "manager",
+						"type": "address"
+					}
+				],
+				"name": "ManagerApproved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "manager",
+						"type": "address"
+					}
+				],
+				"name": "ManagerRemoved",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_manager",
+						"type": "address"
+					}
+				],
+				"name": "approveManager",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_productId",
+						"type": "uint256"
+					}
+				],
+				"name": "getInventory",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "productId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "stock",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "isRegistered",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "pauseContract",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_productId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_stock",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_owner",
+						"type": "address"
+					}
+				],
+				"name": "registerInventory",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_manager",
+						"type": "address"
+					}
+				],
+				"name": "removeManager",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "unpauseContract",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_productId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_newStock",
+						"type": "uint256"
+					}
+				],
+				"name": "updateInventory",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "Inventory levels are tracked in real-time and updated as transactions occur, ensuring transparency and traceability.",
+			"kind": "dev",
+			"methods": {
+				"approveManager(address)": {
+					"params": {
+						"_manager": "The address to be approved as a manager"
+					}
+				},
+				"getInventory(uint256)": {
+					"params": {
+						"_productId": "The unique ID of the product"
+					},
+					"returns": {
+						"isRegistered": "Indicates if the product is registered in the inventory",
+						"owner": "The address of the inventory owner",
+						"productId": "The unique ID of the product",
+						"stock": "The current stock level of the product"
+					}
+				},
+				"registerInventory(uint256,uint256,address)": {
+					"params": {
+						"_owner": "The address of the inventory owner",
+						"_productId": "The unique ID of the product",
+						"_stock": "The initial stock level of the product"
+					}
+				},
+				"removeManager(address)": {
+					"params": {
+						"_manager": "The address to be removed from approved managers"
+					}
+				},
+				"updateInventory(uint256,uint256)": {
+					"params": {
+						"_newStock": "The new stock level of the product",
+						"_productId": "The unique ID of the product"
+					}
+				}
+			},
+			"title": "Inventory Management Contract - Supply Chain Management System",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"approveManager(address)": {
+					"notice": "Approve a new inventory manager"
+				},
+				"getInventory(uint256)": {
+					"notice": "Get the inventory details of a product"
+				},
+				"pauseContract()": {
+					"notice": "Pause the contract to prevent certain operations"
+				},
+				"registerInventory(uint256,uint256,address)": {
+					"notice": "Register a new product inventory for an owner"
+				},
+				"removeManager(address)": {
+					"notice": "Remove an existing inventory manager"
+				},
+				"unpauseContract()": {
+					"notice": "Unpause the contract to resume operations"
+				},
+				"updateInventory(uint256,uint256)": {
+					"notice": "Update the inventory stock of a product"
+				}
+			},
+			"notice": "This contract manages the inventory of products available at different stages of the supply chain.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/InventoryManagement.sol": "InventoryManagement"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/InventoryManagement.sol": {
+			"keccak256": "0x8166404da9885e51354421e5ad2118c5043d5cf0492a49d972636e9a018c26a3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://28920380599b1fc722e1b28746a8014a8def082e84d2e578f2f1f07c4dda7855",
+				"dweb:/ipfs/QmREvqRXbrJhiMKavwysNpcUApJ6pCsNstAjpKMXx2BKEb"
+			]
+		},
+		"contracts/structs/ProductInventory.sol": {
+			"keccak256": "0x32652a8fcb9f6f357a12b20fbc74d2f9a2a761c73efd1b47e179e6bddc608ff5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://05e14a043c51f971194a1c345d6ca40f528d3a1ee32506c51b2d8d5f705c5d49",
+				"dweb:/ipfs/Qmb5atVmWdMijycq8VMSwzfpy1P1eZie7uRfXiwNvNLGRK"
+			]
+		}
+	},
+	"version": 1
+}
